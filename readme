@@ -1,26 +1,31 @@
-Install sudo:
+#**Install Glances**
+**Install sudo:**
 
+'''
 apt update
 apt install sudo
+'''
 
-Remove EXTERNALLY-MANAGED Marker:
+**Remove EXTERNALLY-MANAGED Marker:**
 
+'''
 sudo rm -rf /usr/lib/python3.*/EXTERNALLY-MANAGED
+'''
 
-Install Required Packages: Ensure you have python3, python3-pip, and python3-psutil installed:
-
+**Install Required Packages: Ensure you have python3, python3-pip, and python3-psutil installed:**
+'''
 sudo apt update
 sudo apt install python3 python3-pip python3-psutil
-
-Install glances
-
+'''
+**Install glances**
+'''
 sudo pip3 install glances
-
-Start glances
-
+'''
+**Start glances**
+'''
 glances -w
-
-How to make it permament so it does not stope once you are out of shell:
+'''
+##**How to make it permament so it does not stope once you are out of shell:**
 
 Create a systemd service file:
 
