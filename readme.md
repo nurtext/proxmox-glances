@@ -1,4 +1,4 @@
-#**Install Glances**
+**Install Glances**
 **Install sudo:**
 
 ```javascript
@@ -25,13 +25,13 @@ sudo pip3 install glances
 ```
 glances -w
 ```
-##**How to make it permament so it does not stope once you are out of shell:**
+**How to make it permament so it does not stope once you are out of shell:**
 
 Create a systemd service file:
 ```
 nano /etc/systemd/system/glances.service
 ```
-##**Add the following content:**
+**Add the following content:**
 ```
 [Unit]
 Description=Glances Monitoring Tool
