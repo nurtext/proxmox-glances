@@ -1,7 +1,7 @@
 #**Install Glances**
 **Install sudo:**
 
-'''
+'''javascript
 apt update
 apt install sudo
 '''
