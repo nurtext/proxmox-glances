@@ -8,9 +8,9 @@ apt install sudo
 
 **Remove EXTERNALLY-MANAGED Marker:**
 
-'''
+''
 sudo rm -rf /usr/lib/python3.*/EXTERNALLY-MANAGED
-'''
+''
 
 **Install Required Packages: Ensure you have python3, python3-pip, and python3-psutil installed:**
 '''
