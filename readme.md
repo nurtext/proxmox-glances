@@ -1,10 +1,10 @@
 #**Install Glances**
 **Install sudo:**
 
-'''javascript
+```javascript
 apt update
 apt install sudo
-'''
+```
 
 **Remove EXTERNALLY-MANAGED Marker:**
 
