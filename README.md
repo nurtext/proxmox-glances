@@ -1,6 +1,6 @@
 # How to install Glances on Proxmox - the correct way
 
-Background: Messing with the externally managed Python 3 packages on Proxmox isn't recommendet and seem to break functionality. At least that's why I experienced after installing Glances (the traditional way) and in combination with networking setting IP addresses using `ifupdown2`. My assumption therefore is that the Python dependencies required by Glances somehow interfere with the dependencies managed by Proxmox.
+Background: Messing with the externally managed Python 3 packages on Proxmox isn't recommended and seem to break functionality. At least that's why I experienced after installing Glances (the traditional way) and in combination with networking setting IP addresses using `ifupdown2`. My assumption therefore is that the Python dependencies required by Glances somehow interfere with the dependencies managed by Proxmox.
 
 This installation method uses `pipx` in order to create an isolated environment for Glances to run in.
 
