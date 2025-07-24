@@ -1,57 +1,63 @@
-**Install Glances**
-**Install sudo:**
+# How to install Glances on Proxmox - the correct way
 
-```javascript
+Background: Messing with the externally managed Python 3 packages on Proxmox isn't recommendet and seem to break functionality. At least that's why I experienced after installing Glances (the traditional way) and in combination with networking setting IP addresses using `ifupdown2`. My assumption therefore is that the Python dependencies required by Glances somehow interfere with the dependencies managed by Proxmox.
+
+This installation method uses `pipx` in order to create an isolated environment for Glances to run in.
+
+## 1. Install pipx
+
+```bash
 apt update
-apt install sudo
+apt install pipx
 ```
 
-**Remove EXTERNALLY-MANAGED Marker:**
+## 2. Install Glances
 
-```javascript
-sudo rm -rf /usr/lib/python3.*/EXTERNALLY-MANAGED
+```bash
+pipx install 'glances[all]'
 ```
 
-**Install Required Packages: Ensure you have python3, python3-pip, and python3-psutil installed:**
-```
-sudo apt update
-sudo apt install python3 python3-pip python3-psutil
-```
-**Install glances**
-```
-sudo pip3 install glances
-```
-**Start glances**
-```
-glances -w
-```
-**How to make it permament so it does not stope once you are out of shell:**
+## 3. Start Glances once
 
-Create a systemd service file:
+```bash
+/root/.local/bin/glances -w
 ```
+
+(press Ctrl+C to stop)
+
+## 4. Run Glances as a systemd service
+
+
+**Create a new service file**
+
+```bash
 nano /etc/systemd/system/glances.service
 ```
-**Add the following content:**
-```
+
+**Copy and paste the following lines, then save and exit the editor**
+
+```plaintext
 [Unit]
 Description=Glances Monitoring Tool
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/glances -w
+ExecStart=/root/.local/bin/glances -w
 Restart=always
 
 [Install]
 WantedBy=multi-user.target
 ```
-Save and exit (CTRL + X, then Y)
 
-Enable and start the service:
-```
+**Enable and start the service**
+
+```bash
 systemctl enable glances.service
 systemctl start glances.service
 ```
-Check status:
+
+**Now check if the service is running**
+
 ```
 systemctl status glances.service
 ```
